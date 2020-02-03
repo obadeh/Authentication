@@ -2,14 +2,15 @@
 
 const express = require('express');
 const basicAuth = require('./basic-auth.js');
-const users = require('./users.js');
+const User = require('./users-schema.js');
 
 const app = express();
 
 app.use(express.json());
 
 app.post('/signup', (req, res) => {
-  users.save(req.body)
+
+  new User.save(req.body)
     .then(user => {
       let token = users.generateToken(user);
       res.status(200).send(token);
@@ -17,7 +18,7 @@ app.post('/signup', (req, res) => {
 });
 
 app.post('/signin', basicAuth, (req, res) => {
-  res.status(200).send(req.token);
+ 
 });
 
 app.get('/users', basicAuth, (req, res) => {

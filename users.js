@@ -2,15 +2,15 @@
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const users=require('./user-schema')
 
 let SECRET = 'coolsecret';
 
-let db = {};
-let users = {};
+
 
 users.save = async function (record) {
 
-  if (!db[record.username]) {
+  if (!this.find({username:record.username})) {
     record.password = await bcrypt.hash(record.password, 5);
 
     db[record.username] = record;
