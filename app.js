@@ -2,17 +2,30 @@
 
 const express = require('express');
 const basicAuth = require('./basic-auth.js');
-const User = require('./users-schema.js');
+const User = require('./users.js');
 
 const app = express();
 
 app.use(express.json());
 
+require('dotenv').config();
+
+// Start up DB Server
+const mongoose = require('mongoose');
+const options = {
+  useNewUrlParser:true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+};
+
+mongoose.connect(process.env.MONGODB_URI, options);
+
 app.post('/signup', (req, res) => {
 
-  new User.save(req.body)
-    .then(user => {
-      let token = users.generateToken(user);
+  
+  new User(req.body).save()
+    .then(userIn => {
+      let token = userIn.generateToken(userIn);
       res.status(200).send(token);
     })
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 const base64 = require('base-64');
-const users = require('./users.js');
+const User = require('./users.js');
 
 module.exports = (req, res, next) => {
 
@@ -15,9 +15,9 @@ module.exports = (req, res, next) => {
 
   console.log('decoded user/pw', [user, pass]);
 
-  users.authenticateBasic(user, pass)
+  User.authenticateBasic(user, pass)
     .then(validUser => {
-      req.token = users.generateToken(validUser);
+      req.token = User.generateToken(validUser);
       console.log('token:', req.token);
       next();
     }).catch( err => next('invalid login'));
