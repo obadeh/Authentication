@@ -16,29 +16,12 @@ users.pre('save', async function() {
   
 });
 
-// users.statics.createFromOauth = function(email) {
 
-//   if(! email) { return Promise.reject('Validation Error'); }
 
-//   return this.findOne( {email} )
-//     .then(user => {
-//       if( !user ) { throw new Error('User Not Found'); }
-//       console.log('Welcome Back', user.username);
-//       return user;
-//     })
-//     .catch( error => {
-//       console.log('Creating new user');
-//       let username = email;
-//       let password = 'none';
-//       return this.create({username, password, email});
-//     });
-
-// };
-
-users.statics.authenticateBasic = function(auth) {
-  let query = {username:auth.username};
+users.statics.authenticateBasic = function(user, pass) {
+  let query = {username:user};
   return this.findOne(query)
-    .then( user => user && user.comparePassword(auth.password) )
+    .then( user => user && user.comparePassword(pass) )
     .catch(error => {throw error;});
 };
 
@@ -49,10 +32,11 @@ users.methods.comparePassword = function(password) {
 
 users.methods.generateToken = function(user) {
 
- 
+ console.log('user : ', user);
+ console.log('befor genrate token : ');
 
   let token = jwt.sign({ username: user.username}, process.env.SECRET);
-
+  console.log('token : ', token);
 
   return token;
 };

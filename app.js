@@ -32,10 +32,16 @@ app.post('/signup', (req, res) => {
 
 app.post('/signin', basicAuth, (req, res) => {
  
+  // creat token and append to req by basicAuth middleware
+
+  res.status(200).json(req.token)
 });
 
 app.get('/users', basicAuth, (req, res) => {
-  res.status(200).json(users.list());
+  
+  let users=User.find()
+  console.log('users : ', users);
+  res.status(200).json(users);
 });
 
 app.listen(3000, () => console.log('server up'));
