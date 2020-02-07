@@ -1,4 +1,4 @@
-'use strict';
+
 
 const base64 = require('base-64');
 const User = require('../users.js');
@@ -23,4 +23,4 @@ module.exports = (req, res, next) => {
       console.log('token:', req.token);
       next();
     }).catch( err => next('invalid login'));
-}
+};

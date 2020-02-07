@@ -10,4 +10,4 @@ const users = mongoose.Schema({
 });
 
 
-module.exports = users
+module.exports = users;
