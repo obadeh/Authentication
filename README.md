@@ -6,7 +6,7 @@
 
 ### Links and Resources
 
-- [submission PR](https://github.com/obadeh/Authentication/pull/3)
+- [submission PR](https://github.com/obadeh/Authentication/pull/4)
 - [ci/cd](http://xyz.com) (GitHub Actions)
 
 
@@ -31,4 +31,4 @@ i.e.
 
 #### UML
 
-![uml](./oauth.png)
+![uml](./bar.png)

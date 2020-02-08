@@ -3,7 +3,7 @@ const express = require('express');
 const basicAuth = require('../middleware/basic-auth.js');
 const oauth = require('../middleware/oauth.js');
 const User = require('../users.js');
-
+let bearerAuth = require('../middleware/bearer-auth-middleware.js');
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
@@ -14,7 +14,7 @@ router.post('/signup', (req, res) => {
 // create new user and save it in databsase
   new User(req.body).save()
     .then(userIn => {
-      let token = userIn.generateToken(userIn);
+      let token = User.generateToken(userIn);
       res.status(200).send(token);
     });
 });
@@ -42,5 +42,8 @@ router.get('/oauth', oauth ,(req, res) => {
 
 });
 
+router.get('/user', bearerAuth, (req, res) => {
+  res.status(200).json(req.user);
+});
 
 module.exports = router;
