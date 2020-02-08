@@ -1,12 +1,12 @@
-# LAB - Class 13
+# LAB - Class 15
 
-## Bearer Authorization
+## Module 3 Final Project: API Server
 
 ### Author: obada alquran
 
 ### Links and Resources
 
-- [submission PR](https://github.com/obadeh/Authentication/pull/4)
+- [submission PR](https://github.com/obadeh/Authentication/pull/6)
 - [ci/cd](http://xyz.com) (GitHub Actions)
 
 
@@ -31,4 +31,4 @@ i.e.
 
 #### UML
 
-![uml](./bar.png)
+![uml]()
