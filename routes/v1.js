@@ -1,9 +1,11 @@
 const express = require('express');
 
 const basicAuth = require('../middleware/basic-auth.js');
+const oauth = require('../middleware/oauth.js');
 const User = require('../users.js');
 
 
+// eslint-disable-next-line new-cap
 const router = express.Router();
 
 
@@ -31,6 +33,14 @@ router.get('/users', basicAuth, (req, res) => {
     res.status(200).json(data);
   });
 
+
+
 });
+
+router.get('/oauth', oauth ,(req, res) => {
+  res.status(200).send(req.token);
+
+});
+
 
 module.exports = router;

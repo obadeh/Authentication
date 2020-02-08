@@ -1,12 +1,12 @@
-# LAB - Class 11
+# LAB - Class 12
 
-## Authentication
+## OAuth
 
 ### Author: obada alquran
 
 ### Links and Resources
 
-- [submission PR](https://github.com/obadeh/Authentication/pull/2)
+- [submission PR](https://github.com/obadeh/Authentication/pull/3)
 - [ci/cd](http://xyz.com) (GitHub Actions)
 
 
@@ -31,4 +31,4 @@ i.e.
 
 #### UML
 
-![uml](./ll.png)
+![uml](./oauth.png)

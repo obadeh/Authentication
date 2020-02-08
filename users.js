@@ -36,7 +36,7 @@ users.methods.generateToken = function(user) {
 
 
   let token = jwt.sign({ username: user.username}, process.env.SECRET);
-  console.log('token : ', token);
+  console.log('token genrated: ', token);
 
   return token;
 };
