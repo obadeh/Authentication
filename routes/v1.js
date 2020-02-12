@@ -19,7 +19,7 @@ router.post('/signup', (req, res) => {
     });
 });
 
-router.post('/signin', basicAuth, (req, res) => {
+router.post('/signin', basicAuth, bearerAuth ,(req, res) => {
 
   // creat token and append to req by basicAuth middleware
 
@@ -42,7 +42,7 @@ router.get('/oauth', oauth ,(req, res) => {
 
 });
 
-router.get('/user', bearerAuth, (req, res) => {
+router.get('/secret', bearerAuth, (req, res) => {
   res.status(200).json(req.user);
 });
 

@@ -34,8 +34,9 @@ users.methods.comparePassword = function(password) {
 
 users.statics.generateToken = function(user) {
 
+// note that token expire in 15 min 
 
-  let token = jwt.sign({ username: user.username}, process.env.SECRET);
+  let token = jwt.sign({ username: user.username}, process.env.SECRET, { expiresIn: 60 * 15});
   console.log('token genrated: ', token);
 
   return token;
