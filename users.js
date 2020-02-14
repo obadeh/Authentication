@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
-require('./roles-schema.js')
+require('./roles-schema.js');
 dotenv.config();
 
 const users = new mongoose.Schema({
@@ -42,12 +42,12 @@ users.methods.comparePassword = function(password) {
 
 users.statics.generateToken = function(user) {
 
-  userSecInfo = {
+  let userSecInfo = {
     username: user.username,
-    capabilities: capabilities[user.role]
-  }
+    capabilities: capabilities[user.role],
+  };
 
-  let token = jwt.sign({ username: user.username}, process.env.SECRET);
+  let token = jwt.sign(userSecInfo , process.env.SECRET);
   console.log('token genrated: ', token);
 
   return token;

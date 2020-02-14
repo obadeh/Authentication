@@ -16,8 +16,12 @@
 
 i.e.
 
-- `PORT` - Port Number
-- `MONGODB_URI` - URL to the running mongo instance/db
+- `PORT` - 3000
+- `MONGODB_URI` - mongodb://localhost:27017/lab-11
+- `SECRET`=obadaSECRET
+- `CLIENT_ID`=24c1459df95fbe821cf7
+- `CLIENT_SECRET`=dab712a3d0a986373e25672e8e785fe65cef3e70
+- `API_SERVER`=http://localhost:3000/oauth
 
 #### How to initialize/run your application (where applicable)
 
@@ -31,4 +35,4 @@ i.e.
 
 #### UML
 
-![uml](./bar.png)
+![uml](./acl.png)
